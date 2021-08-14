@@ -1,18 +1,26 @@
-<div id="seadragon-viewer" style="width:800px; height:600px;"></div>
-<script src="//openseadragon.github.io/openseadragon/openseadragon.min.js"></script>
-<script src="//openseadragon.github.io/svg-overlay/openseadragon-svg-overlay.js"></script>
-<script src="//unpkg.com/openseadragon-annotations@1.0.5/dist/openseadragon-annotations.js"></script>
-<!-- There are additional scripts in the JavaScript settings for this CodePen: jQuery, d3 -->
-<script>
+<html>  
+<head>  
+    <title>Openslide Image Annotation</title>  
+</head>  
+  <body>
+    <h1>Output:</h1>
+    <div id="seadragon-viewer" style="width:800px; height:600px;"></div>
+    <script src="//openseadragon.github.io/openseadragon/openseadragon.min.js"></script>
+    <script src="//openseadragon.github.io/svg-overlay/openseadragon-svg-overlay.js"></script>
+    <script src="//unpkg.com/openseadragon-annotations@1.0.5/dist/openseadragon-annotations.js"></script>
+    <!-- There are additional scripts in the JavaScript settings for this CodePen: jQuery, d3 -->
+    <script>
 
-var viewer = OpenSeadragon({
-  id: "seadragon-viewer",
-  prefixUrl: "//openseadragon.github.io/openseadragon/images/",
-  tileSources:"./static/alpha.dzi",
-});
+    var viewer = OpenSeadragon({
+      id: "seadragon-viewer",
+      prefixUrl: "//openseadragon.github.io/openseadragon/images/",
+      tileSources:"./static/alpha.dzi",
+    });
 
-viewer.initializeAnnotations();
-var overlay = viewer.svgOverlay();
-overlay.node().parentNode.style.pointerEvents = 'none';
-  
-</script>
+    viewer.initializeAnnotations();
+    var overlay = viewer.svgOverlay();
+    overlay.node().parentNode.style.pointerEvents = 'none';
+
+    </script>
+  </body>
+</html>
