@@ -1,15 +1,58 @@
 <html>  
 <head>  
-    <title>Openslide Image Annotation</title>  
+    <title>Openslide Image Annotation</title> 
+    <style>
+        #loader {
+            border: 12px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 12px solid #444444;
+            width: 70px;
+            height: 70px;
+            animation: spin 1s linear infinite;
+        }
+          
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+          
+        .center {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+    </style> 
 </head>  
   <body>
     <h1>Output:</h1>
+    <div id="loader" class="center"></div>
     <div id="seadragon-viewer" style="width:800px; height:600px;"></div>
     <script src="//openseadragon.github.io/openseadragon/openseadragon.min.js"></script>
     <script src="//openseadragon.github.io/svg-overlay/openseadragon-svg-overlay.js"></script>
     <script src="//unpkg.com/openseadragon-annotations@1.0.5/dist/openseadragon-annotations.js"></script>
     <!-- There are additional scripts in the JavaScript settings for this CodePen: jQuery, d3 -->
     <script>
+    	let flag = false;
+    	if (UrlExists("./static/alpha.dzi")==false){
+        	document.querySelector("body").style.visibility = "hidden";
+        	document.querySelector("#loader").style.visibility = "visible";
+        }
+        else{
+        	document.querySelector("body").style.visibility = "visible";
+        	document.querySelector("#loader").style.visibility = "hidden";
+        	flag=true;
+        }
+    	function UrlExists(url)
+	{
+    		var http = new XMLHttpRequest();
+    		http.open('HEAD', url, false);
+    		http.send();
+    		return http.status!=404;
+	}
     	var viewer = OpenSeadragon({
         	id: "seadragon-viewer",
         	prefixUrl: "//openseadragon.github.io/openseadragon/images/",
@@ -18,7 +61,14 @@
         viewer.initializeAnnotations();
         var overlay = viewer.svgOverlay();
         overlay.node().parentNode.style.pointerEvents = 'none';
-
+	while (UrlExists("./static/alpha.dzi")==false){
+		console.log('Loading');
+	}
+	if(flag==false){
+		location.reload();
+	}
+	
+	
     </script>
   </body>
 </html>
