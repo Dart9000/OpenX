@@ -20,6 +20,8 @@ def upload():
                     shutil.rmtree(file_path)
             except Exception as e:
                 print('Failed to delete %s. Reason: %s' % (file_path, e)) 
+    except:
+        pass
     return render_template("file_upload_form.html")  
  
 @app.route('/success', methods = ['POST'])  
