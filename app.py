@@ -28,8 +28,7 @@ def upload():
 @app.route('/success', methods = ['POST'])  
 def success():  
     if request.method == 'POST':  
-        #f = request.files['file']
-        file_id = 'https://drive.google.com/file/d/1WJTpAUwjc1Tvtw5Y4c2n1q3W8VV4Db1T/view?usp=sharing'
+        file_id = request.form['file'].strip()
         destination = './uploads/alpha'
         download(file_id.split('/')[5] , destination)
         if os.path.exists("./static/alpha.dzi"):
