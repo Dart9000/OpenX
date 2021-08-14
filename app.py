@@ -4,6 +4,7 @@ import os
 import shutil
 #import asyncio
 import threading
+from drive import *
 
 app = Flask(__name__)
 
@@ -27,16 +28,15 @@ def upload():
 @app.route('/success', methods = ['POST'])  
 def success():  
     if request.method == 'POST':  
-        f = request.files['file']
-        ex=f.filename
-        ex=ex.split('.')
-        path='./uploads/alpha.'+ex[1]
-        f.save(path) 
+        #f = request.files['file']
+        file_id = 'https://drive.google.com/file/d/1WJTpAUwjc1Tvtw5Y4c2n1q3W8VV4Db1T/view?usp=sharing'
+        destination = './uploads/alpha'
+        download(file_id.split('/')[5] , destination)
         if os.path.exists("./static/alpha.dzi"):
             os.remove("./static/alpha.dzi")
         if os.path.exists("./static/alpha_files"):
             shutil.rmtree("./static/alpha_files") 
-        t = threading.Thread(target=convert, args=(path,))
+        t = threading.Thread(target=convert, args=(destination,))
         t.start()
         return redirect(url_for("home"))
 
