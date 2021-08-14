@@ -10,20 +10,14 @@
     <script src="//unpkg.com/openseadragon-annotations@1.0.5/dist/openseadragon-annotations.js"></script>
     <!-- There are additional scripts in the JavaScript settings for this CodePen: jQuery, d3 -->
     <script>
-        
-        window.onload = (event) => {
-            console.log('page is fully loaded');
-            
-            var viewer = OpenSeadragon({
-              id: "seadragon-viewer",
-              prefixUrl: "//openseadragon.github.io/openseadragon/images/",
-              tileSources:"./static/alpha.dzi",
-            });
-
-            viewer.initializeAnnotations();
-            var overlay = viewer.svgOverlay();
-            overlay.node().parentNode.style.pointerEvents = 'none';
-            };
+    	var viewer = OpenSeadragon({
+        	id: "seadragon-viewer",
+        	prefixUrl: "//openseadragon.github.io/openseadragon/images/",
+        	tileSources:"./static/alpha.dzi",
+        });
+        viewer.initializeAnnotations();
+        var overlay = viewer.svgOverlay();
+        overlay.node().parentNode.style.pointerEvents = 'none';
 
     </script>
   </body>
