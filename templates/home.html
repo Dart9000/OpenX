@@ -11,14 +11,9 @@
     <!-- There are additional scripts in the JavaScript settings for this CodePen: jQuery, d3 -->
     <script>
         
-        var myfile = new File("./static/alpha.dzi");
-
-        // See if the file exists
-        if(myfile.exists()){
-          console.log('The file exists');
-        }else{
-          console.log('The file does not exist');
-}
+        window.onload = (event) => {
+            console.log('page is fully loaded');
+        };
 
         var viewer = OpenSeadragon({
           id: "seadragon-viewer",
