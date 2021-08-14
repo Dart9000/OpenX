@@ -10,16 +10,25 @@
     <script src="//unpkg.com/openseadragon-annotations@1.0.5/dist/openseadragon-annotations.js"></script>
     <!-- There are additional scripts in the JavaScript settings for this CodePen: jQuery, d3 -->
     <script>
+        
+        var myfile = new File("./static/alpha.dzi");
 
-    var viewer = OpenSeadragon({
-      id: "seadragon-viewer",
-      prefixUrl: "//openseadragon.github.io/openseadragon/images/",
-      tileSources:"./static/alpha.dzi",
-    });
+        // See if the file exists
+        if(myfile.exists()){
+          console.log('The file exists');
+        }else{
+          console.log('The file does not exist');
+}
 
-    viewer.initializeAnnotations();
-    var overlay = viewer.svgOverlay();
-    overlay.node().parentNode.style.pointerEvents = 'none';
+        var viewer = OpenSeadragon({
+          id: "seadragon-viewer",
+          prefixUrl: "//openseadragon.github.io/openseadragon/images/",
+          tileSources:"./static/alpha.dzi",
+        });
+
+        viewer.initializeAnnotations();
+        var overlay = viewer.svgOverlay();
+        overlay.node().parentNode.style.pointerEvents = 'none';
 
     </script>
   </body>
