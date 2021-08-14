@@ -13,17 +13,17 @@
         
         window.onload = (event) => {
             console.log('page is fully loaded');
-        };
+            
+            var viewer = OpenSeadragon({
+              id: "seadragon-viewer",
+              prefixUrl: "//openseadragon.github.io/openseadragon/images/",
+              tileSources:"./static/alpha.dzi",
+            });
 
-        var viewer = OpenSeadragon({
-          id: "seadragon-viewer",
-          prefixUrl: "//openseadragon.github.io/openseadragon/images/",
-          tileSources:"./static/alpha.dzi",
-        });
-
-        viewer.initializeAnnotations();
-        var overlay = viewer.svgOverlay();
-        overlay.node().parentNode.style.pointerEvents = 'none';
+            viewer.initializeAnnotations();
+            var overlay = viewer.svgOverlay();
+            overlay.node().parentNode.style.pointerEvents = 'none';
+            };
 
     </script>
   </body>
