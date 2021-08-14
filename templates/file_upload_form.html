@@ -1,11 +1,19 @@
 <html>  
 <head>  
-    <title>upload</title>  
+    <title>Openslide Image Annotation</title>  
 </head>  
-<body>  
-    <form action = "/success" method = "post" enctype="multipart/form-data">  
-        <input type="file" name="file" />  
-        <input type = "submit" value="Upload">  
+<body style="text-align:center">
+    <h1 style="font-size:2.5rem; margin-bottom:30px">Upload your Image</h1>
+    <form style="display: flex;flex-direction: column;align-items: center;margin-top: 10vh;" action = "/success" method = "post" enctype="multipart/form-data">  
+        <input type="file" name="file" /><br><br><br>
+        <button style="
+            background: #fff;
+            border: none;
+            box-shadow: 1px 1px 1px 1px #A7A7A7;
+            padding: 5px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;" type="submit" >Upload</button> 
     </form>  
 </body>  
 </html>  
