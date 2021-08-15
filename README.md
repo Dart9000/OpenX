@@ -1,5 +1,5 @@
 # OpenX
-**Digital Open-source pathology tool based on OpenSlide with Manipulation & annotations feature.**
+** Digital Open-source pathology tool based on OpenSlide with Manipulation & annotations feature.**
 
 # Supported-formats:
 - Aperio (.svs, .tif)
