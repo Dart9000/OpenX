@@ -36,6 +36,13 @@
     <script src="//unpkg.com/openseadragon-annotations@1.0.5/dist/openseadragon-annotations.js"></script>
     <!-- There are additional scripts in the JavaScript settings for this CodePen: jQuery, d3 -->
     <script>
+    	function UrlExists(url)
+	{
+    		var http = new XMLHttpRequest();
+    		http.open('HEAD', url, false);
+    		http.send();
+    		return http.status!=404;
+	}
     	let flag = false;
     	if (UrlExists("./static/alpha.dzi")==false){
         	document.querySelector("body").style.visibility = "hidden";
@@ -46,13 +53,6 @@
         	document.querySelector("#loader").style.visibility = "hidden";
         	flag=true;
         }
-    	function UrlExists(url)
-	{
-    		var http = new XMLHttpRequest();
-    		http.open('HEAD', url, false);
-    		http.send();
-    		return http.status!=404;
-	}
     	var viewer = OpenSeadragon({
         	id: "seadragon-viewer",
         	prefixUrl: "//openseadragon.github.io/openseadragon/images/",
