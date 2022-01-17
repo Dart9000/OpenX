@@ -18,5 +18,3 @@
 - Rendering DZI image over Website Using Openseadragon.
 - Annotations Using SVG overlayering in Openseadragon-Annotations (Not Supported in Mobile Devices)
 
-# Try it Out:
-[OpenX](https://open-x.herokuapp.com/)
